@@ -6,18 +6,18 @@ const SolarSystem = function(planets) {
 
 SolarSystem.prototype.bindEvent = function () {
   PubSub.subscribe('NavView:selected-planet', (event) => {
-    debugger;
     const selectedPlanet = event.detail;
     this.publishPlanetDetail(selectedPlanet);
   });
 };
 
 SolarSystem.prototype.publishPlanetDetail = function (selectedPlanet) {
+  let planetDetail;
   this.planets.forEach((element) => {
     if (element.name === selectedPlanet){
-      return element;
+      planetDetail = element;
     }
   })
-  PubSub.publish('SolarSystem:selected-planet-ready', element);
+  PubSub.publish('SolarSystem:selected-planet-ready', planetDetail);
 };
 module.exports = SolarSystem;

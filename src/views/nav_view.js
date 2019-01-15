@@ -1,12 +1,12 @@
 const PubSub = require('../helpers/pub_sub.js');
 
-const NavView = function (element) {
-  this.element = element;
+const NavView = function (container) {
+  this.container = container;
 }
 
 NavView.prototype.bindEvent = function () {
   // listen for clicked item
-  this.element.addEventListener('click', (event) => {
+  this.container.addEventListener('click', (event) => {
     // select id from clicked item and then publish that id
     const clickedPlanet = event.target.id;
     PubSub.publish('NavView:selected-planet', clickedPlanet);
