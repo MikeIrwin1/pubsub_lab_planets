@@ -7,7 +7,6 @@ const NavView = function (element) {
 NavView.prototype.bindEvent = function () {
   // listen for clicked item
   this.element.addEventListener('click', (event) => {
-    debugger;
     // select id from clicked item and then publish that id
     const clickedPlanet = event.target.id;
     PubSub.publish('NavView:selected-planet', clickedPlanet);
