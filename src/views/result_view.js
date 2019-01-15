@@ -19,6 +19,7 @@ ResultView.prototype.render = function (planet) {
   const planetVolume = document.createElement('p');
   const planetGravity = document.createElement('p');
   const planetMoons = document.createElement('p');
+  const planetImage = document.createElement('img')
 
   planetName.textContent = `${planet.name}`;
   planetOrbit.textContent = `Orbit: ${planet.orbit} Earth days`;
@@ -27,6 +28,8 @@ ResultView.prototype.render = function (planet) {
   planetVolume.textContent = `Volume: ${planet.volume} Earths`;
   planetGravity.textContent = `Gravity: ${planet.gravity}g`;
   planetMoons.textContent = `Moons: ${planet.moons}`;
+  planetImage.src = `${planet.image}`;
+  planetImage.height = 300;
 
   this.container.innerHTML = '';
   this.container.appendChild(planetName);
@@ -36,5 +39,8 @@ ResultView.prototype.render = function (planet) {
   this.container.appendChild(planetVolume);
   this.container.appendChild(planetGravity);
   this.container.appendChild(planetMoons);
+  this.container.appendChild(planetImage);
+
+
 };
 module.exports = ResultView;
